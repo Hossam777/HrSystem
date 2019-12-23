@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Candidate | Home</title>
+        <meta charset="utf-8">
+        <script>
+        </script>
+    </head>
+    <body>
+        <h1>Hello {{name}},</h1>
+        <form action="/hr/viewCandidates" method="POST">
+            <button type="submit">View Cadidates</button>
+        </fom>
+    </body>
+</html>

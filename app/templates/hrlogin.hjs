@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hr | Login</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div style="margin-top: 200px;">
+        <center>
+            <h2>Login ya bagar</h2>
+            <form action="/hr/service/login" method="POST">
+                <input name="mail" type="text"><br>
+                <input name="password" type="password"><br>
+                <button type="submit">signin</button>
+            </form>
+        </center>
+        </div>
+    </body>
+</html>

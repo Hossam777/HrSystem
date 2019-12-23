@@ -9,6 +9,13 @@ const test = require('./app/controller/test');
 const CHome = require('./app/controller/candidatehome');
 const CSignup = require('./app/controller/candidatesignup');
 const path = require('path');
+
+//// hr part.
+const HLogin = require('./app/controller/hrlogin');
+const HServices = require('./app/controller/hrservices');
+const HHome = require('./app/controller/hrhome');
+const HVCandidate = require('./app/controller/viewcandidates');
+
 ///// services
 const CServices = require('./app/controller/candidateservices');
 
@@ -64,6 +71,7 @@ app.all('/test', function(req, res, next) {
 app.all('/candidate/login', function(req, res, next) {
     CLogin.run(req, res, next);
 });
+
 app.all('/candidate', function(req, res, next) {
     CLogin.run(req, res, next);
 });
@@ -73,6 +81,9 @@ app.all('/candidate/home', function(req, res, next) {
 app.all('/candidate/signup', function(req, res, next) {
     CSignup.run(req, res, next);
 });
+
+
+
 /////////////////////////////// services
 app.all('/candidate/service/login', function(req, res, next) {
     CServices.login(req, res, next);
@@ -93,5 +104,25 @@ app.all('/candidate/service/signup', function(req, res, next) {
     }});
     //CServices.signup(req, res, next);
 });
+
+//////////////////////////// hr routes 
+app.all('/hr/login', function(req, res, next) {
+  HLogin.run(req, res, next);
+});
+
+app.all('/hr/service/login', function(req, res, next) {
+  HServices.login(req, res, next);
+});
+
+app.all('/hr/home', function(req, res, next) {
+  HHome.run(req, res, next);
+});
+
+app.all('/hr/viewCandidates', function(req, res, next) {
+  HVCandidate.run(req, res, next);
+});
+
+
+
 
 module.exports = app;
