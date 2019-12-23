@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Candidate | Login</title>
+        <meta charset="utf-8">
+        <script>
+            postions.forEach(function(item){
+            document.getElementById("postions").innerHTML += "<input type='radio' name='postion' value='${item.postionid}'> ${item.name}<br>";
+            });
+        </script>
+    </head>
+    <body>
+        <form action="/candidate/service/signup" method="POST">
+            <input name="mail" type="text" required><br>
+            <input name="password" type="password" required><br>
+            <input name="name" type="text" required><br>
+            <input name="phone" type="number" required><br>
+            <input name="cv" type="file" required><br>
+            <div id="postions"></div><br>
+            <button type="submit">SignUp</button>
+        </form>
+    </body>
+</html>

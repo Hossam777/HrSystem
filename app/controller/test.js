@@ -8,6 +8,7 @@ module.exports = BaseController.extend({
 		var v = new View(res, 'test');
 		DB.query('SELECT * from answer', (error, results, fields) => {
     		console.log('testing good');
+			console.log(req.session.candidate_name);
   		});
 		v.render({
 			text: 'Please login'
