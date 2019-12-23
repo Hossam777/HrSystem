@@ -13,7 +13,7 @@ module.exports = BaseController.extend({
     		if(error) throw error;
             else{    
                 v.render({
-                    postions: results,
+                    position: results,
                 });	
             }
   		});	

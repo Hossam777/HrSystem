@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Candidate | Login</title>
+        <title>Candidate | Signup</title>
         <meta charset="utf-8">
-        <script>
-            postions.forEach(function(item){
-            document.getElementById("postions").innerHTML += "<input type='radio' name='postion' value='${item.postionid}'> ${item.name}<br>";
-            });
-        </script>
     </head>
     <body>
-        <form action="/candidate/service/signup" method="POST">
-            <input name="mail" type="text" required><br>
-            <input name="password" type="password" required><br>
-            <input name="name" type="text" required><br>
-            <input name="phone" type="number" required><br>
-            <input name="cv" type="file" required><br>
-            <div id="postions"></div><br>
+        <form action="/candidate/service/signup" method="POST" enctype="multipart/form-data">
+            <input name="mail" type="text" placeholder="Email" required><br>
+            <input name="password" type="password" placeholder="password" required><br>
+            <input name="name" type="text" placeholder="Name" required><br>
+            <input name="phone" type="number" placeholder="Phone Number" required><br>
+            CV : <input name="cv" type="file" required><br>
+            <div id="postions">
+                {{#position}}
+                    <input type='radio' name='position' value="{{positionid}}" required> {{Name}}<br>
+                {{/position}}
+            </div><br>
             <button type="submit">SignUp</button>
         </form>
+        {{{message}}}
     </body>
 </html>

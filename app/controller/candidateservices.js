@@ -26,10 +26,11 @@ module.exports = BaseController.extend({
             });	
         },
     signup: function(req, res, next){
-        DB.query("INSERT INTO customers (Email, password, name, phone, cv, postionid, examphase) VALUES (${req.body.mail}, ${req.body.password}, ${req.body.name}, ${req.body.phone}, ${req.body.name}, ${req.body.postion}, 1)"
+        DB.query("INSERT INTO candidate (Email, password, name, phone, cv, positionid, examphase) VALUES ('" + req.body.mail + "', '" + req.body.password + "', '" + req.body.name + "', '" + req.body.phone + "', '" + req.file.filename + "', '" + req.body.position + "', 1)"
         , (error, results, fields) => {
     		if(error){
-                res.back();
+                console.log(error);
+                redirect.back();
             }else{
                 req.session.candidate_name = req.body.name;
                 req.session.candidate_email = req.body.mail;
@@ -37,7 +38,6 @@ module.exports = BaseController.extend({
                 req.session.candidate_phone = req.body.phone;
                 req.session.candidate_postionid = req.body.postion;
                 req.session.candidate_examphase = 1;
-                res.send(file);
                 res.redirect('/candidate/home');
             }
   		});
